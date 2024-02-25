@@ -8,7 +8,8 @@ env:
 jobs:
   build-x86_64:
     runs-on: ubuntu-22.04
-
+    outputs:
+      output1: ${{steps.artifact-upload-step.outputs.artifact-id}}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -39,9 +40,6 @@ jobs:
           path: |
             ${{github.workspace}}/bin/sideloader-x86_64
             ${{github.workspace}}/bin/sideloader-x86_64.dbg
-      
-      - name: Output artifact ID
-      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
 
   build-i686:
     # Does not work yet
