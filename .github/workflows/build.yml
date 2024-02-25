@@ -39,6 +39,9 @@ jobs:
           path: |
             ${{github.workspace}}/bin/sideloader-x86_64
             ${{github.workspace}}/bin/sideloader-x86_64.dbg
+      
+      - name: Output artifact ID
+      run:  echo 'Artifact ID is ${{ steps.artifact-upload-step.outputs.artifact-id }}'
 
   build-i686:
     # Does not work yet
